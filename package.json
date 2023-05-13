@@ -22,7 +22,7 @@
     "test-cov": "nyc npm run test-spec",
     "test-ts": "tsc doT.d.ts",
     "test": "npm run eslint && npm run test-cov && npm run test-ts",
-    "bundle": "browserify -s doT doT.js | uglifyjs -c -m -b 'beautify=false,preamble=\"/* Laura Doktorova https://github.com/olado/doT */\"' > doT.min.js",
+    "bundle": "browserify -s doT doT.js | uglifyjs -c -m -b > doT.min.js",
     "prepublish": "npm run bundle"
   },
   "files": [
@@ -52,11 +52,6 @@
       "lcov",
       "text-summary"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged && npm test"
-    }
   },
   "lint-staged": {
     "*.{md,json,yaml,js,ts}": "prettier --write"
